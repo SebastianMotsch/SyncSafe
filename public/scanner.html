@@ -29,38 +29,37 @@
 
       <main>
         <div class="dashboard">
-          <!-- Top Row -->
           <div id="network-status" class="box small-box">
             <h2>Network Status</h2>
             <p id="status-text">Offline</p>
           </div>
           <div id="overall-health" class="box small-box">
             <h2>Overall Health</h2>
-            <p>Good</p>
+            <p>Moderate</p>
           </div>
           
           <div id="qr-code" class="box small-box">
             <div id="qr-code-display"></div>
           </div>
 
-          <!-- Middle Row -->
           <div id="detections" class="box large-box">
-            <table id="detection-table">
-              <thead>
-                <tr>
-                  <th>Date & Time</th>
-                  <th>Category</th>
-                  <th>Conclusion</th>
-                </tr>
-              </thead>
-              <tbody id="detection-body"></tbody>
-            </table>
+            <div id="table-container">
+              <table id="detection-table">
+                <thead>
+                  <tr>
+                    <th>Date & Time</th>
+                    <th>Score</th>
+                    <th>Severity</th>
+                  </tr>
+                </thead>
+                <tbody id="detection-body"></tbody>
+              </table>
+            </div>
           </div>
           <div id="clients" class="box medium-box">
             <ul id="user-list"></ul>
           </div>
 
-          <!-- Bottom Row -->
           <div id="bottom-left">
             <div id="bottom-left-top" class="box small-box">
                 <h2>Alerts</h2>
@@ -72,14 +71,15 @@
             </div>
         </div>
         <div id="bottom-right" class="box large-box">
-            <h2>Report</h2>
-            <div id="report-content">Report content here.</div>
+            <div id="vulnerable-users-display"></div>
+            <canvas id="userBarChart" style="width: 100%; height: 100%"></canvas>
         </div>
       </main>
     </div>
 
     <script src="/qrcode/qrcode.min.js"></script>
     <script src="scanner.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <footer>
       <p>&copy; CI 102 - Team 6 - IoT Device Vulnerability Scanner. All rights reserved.</p>

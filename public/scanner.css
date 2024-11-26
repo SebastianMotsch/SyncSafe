@@ -1,4 +1,4 @@
-:root{
+:root {
   --palepurple: #F1E3F3;
   --periwinkle: #C2BBF0;
   --jordyblue: #8FB8ED;
@@ -18,7 +18,7 @@ header {
   background-color: var(--dodgerblue);
   position: relative;
   width: 100%;
-  height: 50px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: left;
@@ -111,7 +111,7 @@ main {
 .dashboard h2 {
   font-size: 26px;
   color: var(--dodgerblue);
-  text-indent: 4%;
+  text-indent: 1%;
 }
 
 .dashboard {
@@ -119,7 +119,6 @@ main {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto auto;
   gap: 20px;
-
   margin: 20px;
 }
 
@@ -170,45 +169,36 @@ main {
 }
 
 #network-status.online {
-  border-left: 5px solid #4CAF50; /* Green border */
+  border-left: 5px solid #4CAF50;
 }
 
 #status-text.online {
-  color: #4CAF50; /* Green text */
+  color: #4CAF50;
 }
 
 #status-text.offline {
-  color: #F44336; /* Red text */
+  color: #F44336;
 }
 
-#user-list {
-    list-style: none;
-    padding: 0;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-th, td {
+#table-container {
+  max-height: 300px;
+  overflow-y: scroll;
   border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+  border-radius: 10px;
+  padding: 0;
 }
 
-#user-list li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+#vulnerable-users-display {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--dodgerblue);
 }
 
 #detection-table {
   width: 100%;
   border-collapse: collapse;
-  border-radius: 10px;
-  overflow: hidden;
 }
 
 #detection-table th {
@@ -226,9 +216,102 @@ th, td {
   background-color: var(--palepurple);
 }
 
-.large-box {
-  border-radius: 10px;
-  overflow: hidden;
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.severity-label {
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+}
+
+.severity-label[style*="color: red"] {
+  color: red;
+}
+
+.severity-label[style*="color: orange"] {
+  color: orange;
+}
+
+.severity-label[style*="color: green"] {
+  color: green;
+}
+
+.severity-label[style*="color: blue"] {
+  color: blue;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#user-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 280px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+#user-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+#dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  max-height: 280px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+}
+
+#dashboard-table thead th {
+  background-color: var(--dodgerblue);
+  color: white;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+#dashboard-table tbody td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#dashboard-table tbody {
+  display: block;
+  max-height: 240px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#dashboard-table thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+#dashboard-table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
 
 .status-dot {
@@ -237,6 +320,12 @@ th, td {
   height: 10px;
   border-radius: 50%;
   margin-right: 10px;
+}
+
+#userBarChart {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 footer {
