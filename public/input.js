@@ -1,6 +1,6 @@
 document.getElementById("userForm").addEventListener("submit", async (event) => {
   event.preventDefault();
-  const username = document.getElementById("username").value;
+  const device = document.getElementById("device").value;
 
   try {
     // Send the data to the server
@@ -9,7 +9,7 @@ document.getElementById("userForm").addEventListener("submit", async (event) => 
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username }),
+      body: JSON.stringify({ device }),
     });
 
     const result = await response.json();

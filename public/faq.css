@@ -118,6 +118,8 @@ main {
     background-color: var(--palepurple);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 .section img {
@@ -140,8 +142,8 @@ main {
 .question {
     margin-inline: 5%;
     width: 87.5%;
-    font-size: 15px;
     cursor: pointer;
+    font-size: 20px;
     background-color: var(--jordyblue);
 }
 
@@ -151,6 +153,7 @@ main {
 
 .question:after{
     content: "\002B";
+    font-size: 24px;
     float: right;
 }
 
@@ -162,9 +165,10 @@ main {
     overflow: hidden;
     max-height: 0;
     text-indent: 7.5%;
-    font-size: 15px;
-    color: var(--deekskyblue);
+    font-size: 18px;
+    color: #333;
     transition: max-height 0.2s ease-out;
+    margin-top: 10px;
 }
 
 footer {
