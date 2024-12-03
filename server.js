@@ -17,20 +17,32 @@ app.get("/status", (req, res) => {
 });
 
 app.post("/submit", (req, res) => {
-  const { username } = req.body;
+  const { device } = req.body;
   const timestamp = new Date().toISOString();
   const vulnerability = Math.floor(Math.random() * 100) + 1;
-  const data = JSON.parse(fs.readFileSync("data.json", "utf-8"));
 
-  if (data.some((user) => user.username === username)) {
-    res.json({ message: "Username already exists. Please choose a different name." });
-    return;
+  try {
+    const data = JSON.parse(fs.readFileSync("data.json", "utf-8"));
+    const existingDeviceIndex = data.findIndex((entry) => entry.device === device);
+
+    if (existingDeviceIndex !== -1) {
+      data[existingDeviceIndex] = {
+        ...data[existingDeviceIndex],
+        timestamp,
+        vulnerability,
+        online: true,
+      };
+    } else {
+      const newDevice = { device, timestamp, vulnerability, online: true };
+      data.push(newDevice);
+    }
+
+    fs.writeFileSync("data.json", JSON.stringify(data, null, 2));
+    res.json({ message: `${device} has been successfully added or updated.` });
+  } catch (error) {
+    console.error("Error updating data:", error);
+    res.status(500).json({ message: "Error processing the request." });
   }
-
-  const newUser = { username, timestamp, vulnerability, online: true };
-  data.push(newUser);
-  fs.writeFileSync("data.json", JSON.stringify(data, null, 2));
-  res.json({ message: "User connected successfully!" });
 });
 
 app.get("/generate-qr", (req, res) => {

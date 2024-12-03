@@ -121,20 +121,8 @@
   },
   {
     "device": "Apple Airpods",
-    "timestamp": "2024-12-03T18:33:11.742Z",
-    "vulnerability": 58,
-    "online": true
-  },
-  {
-    "device": "Apple Airpods #2",
-    "timestamp": "2024-12-03T18:35:01.694Z",
-    "vulnerability": 98,
-    "online": true
-  },
-  {
-    "username": "Apple Airpods #3",
-    "timestamp": "2024-12-03T18:38:04.846Z",
-    "vulnerability": 97,
+    "timestamp": "2024-12-03T20:36:19.878Z",
+    "vulnerability": 96,
     "online": true
   }
 ]

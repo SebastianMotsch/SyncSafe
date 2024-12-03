@@ -12,8 +12,13 @@ document.getElementById("userForm").addEventListener("submit", async (event) => 
       body: JSON.stringify({ device }),
     });
 
+    if (!response.ok) {
+      throw new Error(`Server error: ${response.statusText}`);
+    }
+
     const result = await response.json();
     alert(result.message);
+    document.getElementById("device").value = ""; // Clear input field
   } catch (error) {
     console.error("Error connecting to the server:", error);
     alert("Failed to connect. Please try again.");

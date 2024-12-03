@@ -36,15 +36,15 @@ function calculateOverallHealth(data) {
   const totalScore = data.reduce((sum, user) => sum + user.vulnerability, 0);
   const averageScore = totalScore / data.length;
 
-  if (averageScore >= 70) {
-    healthElement.textContent = "Good";
-    styleLabel(healthElement, "green");
-  } else if (averageScore >= 30) {
+  if (averageScore >= 80) {
+    healthElement.textContent = "Poor";
+    styleLabel(healthElement, "red");
+  } else if (averageScore >= 60) {
     healthElement.textContent = "Moderate";
     styleLabel(healthElement, "orange");
   } else {
-    healthElement.textContent = "Poor";
-    styleLabel(healthElement, "red");
+    healthElement.textContent = "Good";
+    styleLabel(healthElement, "green");
   }
 }
 
@@ -166,7 +166,7 @@ function prepareChartData(data) {
     const date = new Date(user.timestamp).toISOString().split("T")[0];
     if (!acc[date]) acc[date] = { total: 0, vulnerable: 0 };
     acc[date].total += 1;
-    if (user.vulnerability < 30) acc[date].vulnerable += 1;
+    if (user.vulnerability < 60) acc[date].vulnerable += 1;
     return acc;
   }, {});
 
