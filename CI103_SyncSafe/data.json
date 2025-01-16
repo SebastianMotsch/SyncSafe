@@ -1,0 +1,146 @@
+[
+  {
+    "device": "Smart Thermostat",
+    "timestamp": "2024-11-24T09:23:12.562Z",
+    "vulnerability": 12,
+    "online": true
+  },
+  {
+    "device": "Security Camera",
+    "timestamp": "2024-11-23T16:45:30.335Z",
+    "vulnerability": 87,
+    "online": false
+  },
+  {
+    "device": "Smart Door Lock",
+    "timestamp": "2024-11-21T18:15:45.457Z",
+    "vulnerability": 43,
+    "online": true
+  },
+  {
+    "device": "Smart TV",
+    "timestamp": "2024-11-19T02:50:20.762Z",
+    "vulnerability": 95,
+    "online": true
+  },
+  {
+    "device": "WiFi Router",
+    "timestamp": "2024-11-17T14:05:10.562Z",
+    "vulnerability": 6,
+    "online": false
+  },
+  {
+    "device": "Smart Speaker",
+    "timestamp": "2024-11-15T20:30:45.562Z",
+    "vulnerability": 74,
+    "online": true
+  },
+  {
+    "device": "Baby Monitor",
+    "timestamp": "2024-11-13T11:25:35.762Z",
+    "vulnerability": 31,
+    "online": false
+  },
+  {
+    "device": "Gaming Console",
+    "timestamp": "2024-11-12T22:40:22.335Z",
+    "vulnerability": 66,
+    "online": true
+  },
+  {
+    "device": "Smart Fridge",
+    "timestamp": "2024-11-11T09:05:12.857Z",
+    "vulnerability": 89,
+    "online": true
+  },
+  {
+    "device": "Smart Light Bulb",
+    "timestamp": "2024-11-09T06:10:00.000Z",
+    "vulnerability": 19,
+    "online": false
+  },
+  {
+    "device": "Home Hub",
+    "timestamp": "2024-11-08T17:50:50.335Z",
+    "vulnerability": 58,
+    "online": true
+  },
+  {
+    "device": "Pet Feeder",
+    "timestamp": "2024-11-06T07:15:15.562Z",
+    "vulnerability": 92,
+    "online": false
+  },
+  {
+    "device": "Smart Vacuum",
+    "timestamp": "2024-11-05T21:18:25.335Z",
+    "vulnerability": 22,
+    "online": true
+  },
+  {
+    "device": "Smart Washer",
+    "timestamp": "2024-11-03T13:35:55.762Z",
+    "vulnerability": 79,
+    "online": true
+  },
+  {
+    "device": "Smart Dryer",
+    "timestamp": "2024-11-02T23:50:40.335Z",
+    "vulnerability": 7,
+    "online": false
+  },
+  {
+    "device": "Smart Oven",
+    "timestamp": "2024-10-30T15:20:59.999Z",
+    "vulnerability": 83,
+    "online": true
+  },
+  {
+    "device": "Smart Fan",
+    "timestamp": "2024-10-28T19:45:30.457Z",
+    "vulnerability": 51,
+    "online": true
+  },
+  {
+    "device": "Fitness Tracker",
+    "timestamp": "2024-10-27T08:05:10.457Z",
+    "vulnerability": 36,
+    "online": true
+  },
+  {
+    "device": "Drone",
+    "timestamp": "2024-10-27T14:30:45.335Z",
+    "vulnerability": 90,
+    "online": false
+  },
+  {
+    "device": "Smart Camera",
+    "timestamp": "2024-10-27T20:50:15.762Z",
+    "vulnerability": 17,
+    "online": true
+  },
+  {
+    "device": "Apple Airpods",
+    "timestamp": "2024-12-03T20:36:19.878Z",
+    "vulnerability": 96,
+    "online": true
+  },
+  {
+    "device": "Xbox",
+    "timestamp": "2024-12-03T23:12:33.956Z",
+    "vulnerability": 69,
+    "online": true
+  },
+  {
+    "device": "PS5",
+    "timestamp": "2024-12-04T00:39:41.476Z",
+    "vulnerability": 30,
+    "online": true
+  },
+  {
+    "device": "Test123",
+    "timestamp": "2025-01-09T15:28:06.631Z",
+    "vulnerability": 100,
+    "online": true
+  }
+]
