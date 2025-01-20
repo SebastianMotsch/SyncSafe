@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Main Info</title>
+        <link rel="stylesheet" type="text/css" href="maininfo.css">
+    </head>
+    <body>
+
+    <div id="root"></div>
+
+    <div class="container">
+        <main>
+            <div class="section">
+                <h1>Introduction</h1>
+                <p>
+                    Public Wi-Fi offers convenience but often comes with serious security risks. Understanding security protocols and vulnerabilities is essential for protecting your personal data when connecting to these networks. 
+                </p>
+                <p>
+                    This page provides an overview of common security terms and the threats faced by users when using public networks.
+                </p>
+            </div>
+
+            <div class="section">
+                <h1>Key Security Insights</h1>
+                <div class="sub-section">
+                    <h2>1. Older Protocols are Weak</h2>
+                    <p>
+                        WEP, once widely used, is now obsolete due to its reliance on a single, static encryption key that is easy to crack. WPA, although more secure, can still be compromised through brute-force attacks.
+                    </p>
+                </div>
+                <div class="sub-section">
+                    <h2>2. Weak Passwords are Risky</h2>
+                    <p>
+                        Even modern protocols like WPA2 can be vulnerable if users create weak passwords, enabling attackers to execute dictionary attacks.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h1>Additional Information</h1>
+                <div class="sub-section">
+                    <h2>3. Fake Wi-Fi Networks</h2>
+                    <p>
+                        Hackers often set up fake Wi-Fi hotspots with names similar to legitimate networks. Once users connect, their data can be intercepted using man-in-the-middle attacks. Always verify the network's name with the establishment providing it.
+                    </p>
+                </div>
+                <div class="sub-section">
+                    <h2>4. Packet Sniffing</h2>
+                    <p>
+                        Without proper encryption, data transmitted over public Wi-Fi can be captured and analyzed by attackers using packet sniffing tools. This includes sensitive information like login credentials and personal emails.
+                    </p>
+                </div>
+                <div class="sub-section">
+                    <h2>5. Best Practices for Safe Wi-Fi Use</h2>
+                    <ul>
+                        <li>Always use HTTPS websites to encrypt data transmissions.</li>
+                        <li>Avoid accessing sensitive accounts (e.g., banking, email) on public Wi-Fi.</li>
+                        <li>Enable two-factor authentication (2FA) for critical accounts.</li>
+                        <li>Consider using a Virtual Private Network (VPN) for secure browsing.</li>
+                        <li>Turn off automatic connection to public Wi-Fi networks.</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="/src/main.jsx"></script>
+    </body>
+</html>
