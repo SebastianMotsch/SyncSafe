@@ -1,24 +1,25 @@
+import { calculateRiskScore } from './algorithm.js';
+
 async function loadData() {
   try {
-    // Fetch data from the backend API
-    const response = await fetch('/api/devices');
-    if (!response.ok) throw new Error('Failed to fetch data from the server.');
+      const response = await fetch('/api/devices');
+      if (!response.ok) throw new Error('Failed to fetch data from the server.');
 
-    const data = await response.json(); // Parse JSON response
+      const data = await response.json();
+      console.log("Fetched Data:", data); // Debugging log
 
-    updateClients(data); // Update client list
-    updateDetections(data); // Update detection table
-    calculateOverallHealth(data); // Update overall health status
-    renderStackedBarChart(data); // Render vulnerability chart
-    updateNetworkStatus(); // Update network status
+      updateClients(data);
+      updateDetections(data);
+      renderStackedBarChart(data);
+      updateNetworkStatus(true);
   } catch (error) {
-    console.error('Error loading data:', error);
-    updateNetworkStatus(false); // Set network status to offline
+      console.error('Error loading data:', error);
+      updateNetworkStatus(false);
   }
 }
 
 // Update the network status display
-function updateNetworkStatus(isOnline = true) {
+function updateNetworkStatus(isOnline) {
   const statusText = document.getElementById('status-text');
   if (isOnline) {
     statusText.textContent = 'Online';
@@ -39,7 +40,7 @@ function calculateOverallHealth(data) {
     return;
   }
 
-  const totalScore = data.reduce((sum, device) => sum + device.vulnerability, 0);
+  const totalScore = data.reduce((sum, device) => sum + (device.vulnerability || 0), 0);
   const averageScore = totalScore / data.length;
 
   if (averageScore >= 80) {
@@ -59,8 +60,21 @@ function updateClients(data) {
   const userList = document.getElementById('user-list');
   userList.innerHTML = ''; // Clear existing data
 
+  const deviceCounts = {}; // Track occurrences of each device type
+
   data.forEach((device) => {
     const listItem = document.createElement('li');
+
+    // Format the device name correctly
+    let formattedName = formatDeviceName(device.device_category);
+
+    // Count occurrences of each device type
+    if (!deviceCounts[formattedName]) {
+      deviceCounts[formattedName] = 1;
+    } else {
+      deviceCounts[formattedName]++;
+      formattedName = `${formattedName} ${deviceCounts[formattedName]}`;
+    }
 
     // Status dot (green or red)
     const statusDot = document.createElement('span');
@@ -69,12 +83,12 @@ function updateClients(data) {
 
     // Device name
     const deviceName = document.createElement('span');
-    deviceName.textContent = `${device.device}`;
+    deviceName.textContent = formattedName;
     deviceName.classList.add('device-name');
 
     // Vulnerability score
     const vulnerability = document.createElement('span');
-    vulnerability.textContent = ` - Vulnerability: ${device.vulnerability}`;
+    vulnerability.textContent = ` - Vulnerability: ${device.vulnerability || 0}`;
 
     listItem.appendChild(statusDot);
     listItem.appendChild(deviceName);
@@ -83,71 +97,58 @@ function updateClients(data) {
   });
 }
 
+// Helper function to format device names
+function formatDeviceName(name) {
+  return name
+    .replace(/_/g, ' ') // Replace underscores with spaces
+    .replace(/\b\w/g, (char) => char.toUpperCase()); // Capitalize first letter of each word
+}
+
 // Populate the detection table
 function updateDetections(data) {
-  const detectionBody = document.getElementById('detection-body');
-  detectionBody.innerHTML = ''; // Clear existing rows
+  const detectionBody = document.getElementById('detection-table').querySelector('tbody');
+  detectionBody.innerHTML = '';
 
   data.forEach((device) => {
-    const row = document.createElement('tr');
+      const row = document.createElement('tr');
 
-    // Date and time cell
-    const dateCell = document.createElement('td');
-    const date = new Date(device.timestamp);
-    dateCell.textContent = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
-    row.appendChild(dateCell);
+      const dateCell = document.createElement('td');
+      const date = device.timestamp ? new Date(device.timestamp) : new Date();
+      dateCell.textContent = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+      row.appendChild(dateCell);
 
-    // Vulnerability score cell
-    const scoreCell = document.createElement('td');
-    scoreCell.textContent = device.vulnerability;
-    row.appendChild(scoreCell);
+      const deviceCell = document.createElement('td');
+      deviceCell.textContent = device.device_category || "Unknown Device";
+      row.appendChild(deviceCell);
 
-    // Severity cell
-    const severityCell = document.createElement('td');
-    if (device.vulnerability >= 80) {
-      severityCell.textContent = 'High';
-      severityCell.style.color = 'red';
-    } else if (device.vulnerability >= 60) {
-      severityCell.textContent = 'Medium';
-      severityCell.style.color = 'orange';
-    } else {
-      severityCell.textContent = 'Low';
-      severityCell.style.color = 'green';
-    }
-    row.appendChild(severityCell);
+      const score = calculateRiskScore(device);
 
-    detectionBody.appendChild(row);
+      const scoreCell = document.createElement('td');
+      scoreCell.textContent = score;
+      row.appendChild(scoreCell);
+
+      const severityCell = document.createElement('td');
+      severityCell.textContent = score >= 80 ? 'High' : score >= 60 ? 'Medium' : 'Low';
+      severityCell.style.color = score >= 80 ? 'red' : score >= 60 ? 'orange' : 'green';
+      row.appendChild(severityCell);
+
+      detectionBody.appendChild(row);
   });
 }
 
 // Render a stacked bar chart of vulnerabilities
 function renderStackedBarChart(data) {
   const ctx = document.getElementById('userBarChart').getContext('2d');
-
-  const labels = data.map((device) => device.device);
-  const vulnerabilities = data.map((device) => device.vulnerability);
+  const labels = data.map(device => device.device_category);
+  const vulnerabilities = data.map(device => calculateRiskScore(device));
 
   new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: labels,
-      datasets: [
-        {
-          label: 'Vulnerability Score',
-          data: vulnerabilities,
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
+      type: 'bar',
+      data: {
+          labels: labels,
+          datasets: [{ label: 'Vulnerability Score', data: vulnerabilities, backgroundColor: 'rgba(255, 99, 132, 0.5)' }]
       },
-    },
+      options: { scales: { y: { beginAtZero: true } } }
   });
 }
 

@@ -1,3 +1,7 @@
+DATASETS:
+
+https://www.kaggle.com/datasets/fanbyprinciple/iot-device-identification?resource=download
+
 FILE ORGANIZATION
 
 /CI 102 - Project
