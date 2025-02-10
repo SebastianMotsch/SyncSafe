@@ -328,6 +328,25 @@ th, td {
   display: block;
 }
 
+.notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.notification {
+  background-color: #ffcc00;
+  color: #000;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
 footer {
   background-color: #333;
   color: white;

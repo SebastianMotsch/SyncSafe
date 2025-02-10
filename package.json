@@ -5,13 +5,14 @@
   "type": "module",
   "main": "database.js",
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.28.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "pg": "^8.13.1"
+    "pg": "^8.13.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.2",
+    "ws": "^8.18.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -25,7 +26,6 @@
     "globals": "^15.14.0",
     "vite": "^6.0.5"
   },
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
