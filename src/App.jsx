@@ -31,7 +31,6 @@ function App() {
             <Route path="/faq" element={
                 <main>
                 <FaqSetup />
-                <script type="script" src="/src/faq.js"></script>
                 </main>
             }/>
             <Route path="/scanner" element={
