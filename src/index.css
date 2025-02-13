@@ -164,7 +164,7 @@ width: 100%;
 bottom: 0;
 }
 
-.question {
+.question, .open {
   margin-inline: 5%;
   width: 87.5%;
   cursor: pointer;
@@ -172,7 +172,7 @@ bottom: 0;
   background-color: var(--jordyblue);
 }
 
-.question:hover {
+.question:hover, .open:hover {
   background-color: var(--periwinkle);
 }
 
@@ -183,12 +183,15 @@ bottom: 0;
 }
 
 .open:after {
+  font-size: 24px;
+  float: right;
   content: "\2212";
 }
 
 .answer {
-  overflow: hidden;
-  max-height: 0;
+  margin-inline: 5%;
+  width: 87.5%;
+  max-height: fit-content;
   text-indent: 7.5%;
   font-size: 18px;
   color: #333;
