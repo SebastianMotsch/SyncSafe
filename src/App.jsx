@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 import MainInfoSetup from "./MainInfoSetup";
 import FaqSetup from "./FaqSetup";
+import ScannerSetup from "./ScannerSetup"
 
 function App() {
 
@@ -35,7 +36,7 @@ function App() {
             }/>
             <Route path="/scanner" element={
                 <main>
-                
+                <ScannerSetup />
                 </main>
             }/>
         </Routes>

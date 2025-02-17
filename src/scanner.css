@@ -180,20 +180,14 @@ main {
   color: #F44336;
 }
 
-#table-container {
-  max-height: 300px;
-  overflow-y: scroll;
+.table-container {
+  max-height: 250px; /* Adjust as needed */
+  overflow-y: auto;
   border: 1px solid #ddd;
   border-radius: 10px;
-  padding: 0;
-}
-
-#vulnerable-users-display {
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: var(--dodgerblue);
+  padding: 5px;
+  display: block;
+  width: 100%;
 }
 
 #detection-table {
@@ -204,16 +198,37 @@ main {
 #detection-table th {
   background-color: var(--dodgerblue);
   color: white;
-  font-size: 16px;
   text-align: left;
   border-bottom: 2px solid #ddd;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 #detection-table td {
   font-size: 14px;
-  text-align: left;
   border-bottom: 1px solid #ddd;
   background-color: var(--palepurple);
+  padding: 10px;
+}
+
+#detections {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  overflow: hidden; /* Prevents container overflow */
+  height: 300px; /* Ensures the box doesn't expand infinitely */
+}
+
+
+#vulnerable-users-display {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--dodgerblue);
 }
 
 table {
@@ -329,22 +344,18 @@ th, td {
 }
 
 .notification-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 300px;
-  max-height: 400px;
-  overflow-y: auto;
-  z-index: 1000;
+  max-height: 100px; /* Prevents overflow */
+  overflow-y: auto; /* Adds scroll if needed */
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: var(--palepurple);
 }
 
 .notification {
-  background-color: #ffcc00;
-  color: #000;
-  padding: 10px;
+  padding: 5px;
   margin-bottom: 5px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
 }
 
 footer {
