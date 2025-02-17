@@ -27,8 +27,10 @@
     "vite": "^6.0.5"
   },
   "scripts": {
+  "frontend": "vite",
+  "backend": "node website.cjs",
+  "dev": "concurrently \"npm run frontend\" \"npm run backend\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
