@@ -1,0 +1,96 @@
+:root {
+    --palepurple: #F1E3F3;
+    --periwinkle: #C2BBF0;
+    --jordyblue: #8FB8ED;
+    --deepskyblue: #62BFED;
+    --dodgerblue: #3590F3;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--jordyblue);
+    text-align: center;
+}
+
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.top-nav h1 {
+    color: var(--dodgerblue);
+    margin: 0;
+}
+
+.sign-in {
+    padding: 8px 16px;
+    border: 2px solid var(--dodgerblue);
+    background: none;
+    color: var(--dodgerblue);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sign-in:hover {
+    background-color: var(--dodgerblue);
+    color: white;
+}
+
+.welcome-section {
+    padding: 100px 20px;
+    margin-top: 80px;
+}
+
+.logo {
+    width: 180px; 
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+    transform: scale(1.1); 
+}
+
+.welcome-section h2 {
+    color: var(--dodgerblue);
+}
+
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.bottom-nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+    padding: 8px 12px;
+}
+
+.bottom-nav a:hover {
+    color: var(--dodgerblue);
+}
