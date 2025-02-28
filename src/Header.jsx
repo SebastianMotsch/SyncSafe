@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
     return (
     <header>
         <div className="logo-container">
-            <img src="src/images/syncsafe_logo.png" alt="SyncSafe Logo" className="logo" />
+            <Link to="/"><img src="src/images/syncsafe_logo.png" alt="SyncSafe Logo" className="logo" /></Link>
         </div>
     </header>
     )

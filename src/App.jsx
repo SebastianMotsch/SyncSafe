@@ -2,12 +2,14 @@ import Header from "./Header"
 import Footer from "./Footer"
 import UrlSidebar from "./UrlSidebar"
 
-import { useState } from "react";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 import MainInfoSetup from "./MainInfoSetup";
 import FaqSetup from "./FaqSetup";
 import ScannerSetup from "./ScannerSetup"
+import ServicesSetup from "./ServicesSetup"
+import ContactSetup from "./ContactSetup"
+import IndexSetup from "./IndexSetup";
 
 function App() {
 
@@ -19,10 +21,8 @@ function App() {
     <div className="container">
         <UrlSidebar />
         <Routes>
-            <Route path="/" element={
-                <main>
-                <MainInfoSetup />
-                </main>
+            <Route path="/" element={   
+                <IndexSetup />
             }/>
             <Route path="/maininfo" element={
                 <main>
@@ -32,6 +32,16 @@ function App() {
             <Route path="/faq" element={
                 <main>
                 <FaqSetup />
+                </main>
+            }/>
+            <Route path="/contact" element={
+                <main>
+                <ContactSetup />
+                </main>
+            }/>
+            <Route path="/services" element={
+                <main>
+                <ServicesSetup />
                 </main>
             }/>
             <Route path="/scanner" element={
