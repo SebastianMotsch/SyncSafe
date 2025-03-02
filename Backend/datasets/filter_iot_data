@@ -1,0 +1,24 @@
+import pandas as pd
+
+# Load the dataset
+file_path = "C:/Users/Sebny/OneDrive/Desktop/DU Education/Fall 2024/CI 102 - Tammy Pairmann/CI 103 - SyncSafe/Backend/datasets/iot_device_test.csv"
+
+df = pd.read_csv(file_path)
+
+# Define relevant columns
+important_columns = [
+    "device_category", "duration", "bytes", "bytes_A", "bytes_B", "bytes_A_B_ratio",
+    "is_ssl", "is_http", "is_g_http", "is_cdn_http", "is_ad_http",
+    "suffix_is_unresolved", "domain_is_unresolved",
+    "tcp_analysis_retransmission", "tcp_analysis_lost_segment",
+    "ssl_count_certificates", "ssl_count_transactions"
+]
+
+# Filter the dataset
+filtered_df = df[important_columns]
+
+# Save the filtered data
+filtered_df.to_csv("filtered_iot_security_data.csv", index=False)
+
+# Display the first few rows
+print(filtered_df.head())

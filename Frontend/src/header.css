@@ -1,0 +1,56 @@
+
+:root {
+  --palepurple: #F1E3F3;
+  --periwinkle: #C2BBF0;
+  --jordyblue: #8FB8ED;
+  --deekskyblue: #62BFED;
+  --dodgerblue: #3590F3;
+}
+
+.header {
+  width: 100%;
+  background: var(--dodgerblue);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px; 
+  border-bottom: 2px solid white;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 80px; /* Increased logo size */
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* More spacing */
+  margin-left: -200px; /* Shifted content to the left */
+}
+
+.time {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Dropdown styling */
+.scan-dropdown {
+  background: #00bfff;
+  color: white;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.scan-dropdown:hover {
+  background: #008ecc;
+}
