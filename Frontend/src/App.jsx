@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 import MainInfoSetup from "./MainInfoSetup";
 import FaqSetup from "./FaqSetup";
-import ScannerSetup from "./Scanner"
+import ScannerSetup from "./ScannerSetup"
 
 function App() {
 
@@ -18,10 +18,8 @@ function App() {
     <div className="container">
         <UrlSidebar />
         <Routes>
-            <Route path="/" element={
-                <main>
-                <MainInfoSetup />
-                </main>
+            <Route path="/" element={   
+                <IndexSetup />
             }/>
             <Route path="/maininfo" element={
                 <main>
@@ -31,6 +29,16 @@ function App() {
             <Route path="/faq" element={
                 <main>
                 <FaqSetup />
+                </main>
+            }/>
+            <Route path="/contact" element={
+                <main>
+                <ContactSetup />
+                </main>
+            }/>
+            <Route path="/services" element={
+                <main>
+                <ServicesSetup />
                 </main>
             }/>
             <Route path="/scanner" element={

@@ -1,16 +1,16 @@
 const CreateSection = (props) => {
     const sections = props.sections;
+    const classesName = props.classesName;
 
     return (
-        <>
-            {sections.map((section) => (
-                <div className="section" key={section.id}>
-                    {section.heading}
-                    {section.body}
-                </div>
-                    
-            ))}
-        </>
+        <classesName.classType class={classesName.className}>
+            <classesName.heading>
+                {sections.heading}
+            </classesName.heading>
+            <classesName.body>
+                {sections.body}
+            </classesName.body>
+        </classesName.classType >
     )
 }
 

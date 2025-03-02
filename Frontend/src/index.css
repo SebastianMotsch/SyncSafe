@@ -198,3 +198,32 @@ bottom: 0;
   transition: max-height 0.2s ease-out;
   margin-top: 10px;
 }
+
+.sectionServices {
+  background-color: var(--palepurple);
+  padding: 20px;
+  margin: 20px;
+  border: 2px solid var(--palepurple);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  text-align: center;
+}
+
+.logo {
+  width: 180px; 
+  height: auto;
+  margin-bottom: 20px;
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.2));
+   transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.1); 
+}
+
+.sectionMain {
+  text-align: center;
+  padding: 15% 32%;
+  background-color: var(--jordyblue);
+  margin: 0% 0%;
+}
