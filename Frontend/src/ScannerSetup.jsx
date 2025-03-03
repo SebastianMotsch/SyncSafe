@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./scanner.css";
 import axios from "axios";
 import { Doughnut } from "react-chartjs-2";
