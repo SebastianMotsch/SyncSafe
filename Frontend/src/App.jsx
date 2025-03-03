@@ -6,7 +6,10 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 import MainInfoSetup from "./MainInfoSetup";
 import FaqSetup from "./FaqSetup";
-import ScannerSetup from "./ScannerSetup"
+import ScannerSetup from "./Scanner"
+import ServicesSetup from "./ServicesSetup"
+import ContactSetup from "./ContactSetup"
+import IndexSetup from "./IndexSetup";
 
 function App() {
 
