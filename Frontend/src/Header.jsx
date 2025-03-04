@@ -1,6 +1,7 @@
 import "./Header.css";
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const [selectedScan, setSelectedScan] = useState("UAV Scan");
@@ -13,7 +14,7 @@ const Header = () => {
     return (
         <header className="header">
             <div className="logo-container">
-                <img src="src/images/syncsafe_logo.png" alt="SyncSafe Logo" className="logo" />
+                <Link to="/"><img src="src/images/syncsafe_logo.png" alt="SyncSafe Logo" className="logo" /></Link>
             </div>
             
             <div className="header-right">
