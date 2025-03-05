@@ -1,4 +1,5 @@
 import CreateSection from "./CreateSection"
+import { Link } from "react-router-dom";
 
 const ServicesSetup = () => {
     const [serviceClassName] = [{heading: "h2", body: "p", classType: "div", className: "service-card"}]
@@ -19,7 +20,7 @@ const ServicesSetup = () => {
             </div>
             <div className="cta-section">
                     <p>Want to secure your IoT devices? Get started with our security assessment today!</p>
-                    <a href="contact.html" className="cta-button">Contact Us</a>
+                    <Link to="/contact" className="cta-button">Contact Us</Link>
             </div>
         </div>
     )
