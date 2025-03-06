@@ -9,7 +9,7 @@ pipeline_model = pipeline(
     "text-generation",
     model=model_id,
     model_kwargs={"torch_dtype": torch.bfloat16}, 
-    device="cuda", 
+    device= -1,  #Changed from cuda
 )
 
 @app.route('/detect-vulnerabilities', methods=['POST'])
