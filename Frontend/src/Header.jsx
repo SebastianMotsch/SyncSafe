@@ -1,6 +1,6 @@
 import "./Header.css";
 
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -11,6 +11,18 @@ const Header = () => {
         console.log(`Starting scan: ${event.target.value}`);
     };
 
+    const [time, setTime] = useState(new Date().toLocaleTimeString());
+
+    useEffect(() => {
+        const tick = setInterval(() => {
+            setTime(new Date().toLocaleTimeString());
+        }, 1000);
+
+        return () => {
+            clearInterval(tick);
+        }
+    })
+
     return (
         <header className="header">
             <div className="logo-container">
@@ -18,7 +30,7 @@ const Header = () => {
             </div>
             
             <div className="header-right">
-                <div className="time">{new Date().toLocaleTimeString()}</div>
+                <div className="time">{time}</div>
                 <select className="scan-dropdown" value={selectedScan} onChange={handleScanChange}>
                     <option value="">Get Started</option>
                     <option value="Network Scan">Network Scan</option>
