@@ -1,3 +1,7 @@
+//Props -> sections (dictionary), classesName (dictionary)
+//sections -> {heading: text, body: text}
+//classesName -> {heading: h_tag, body: b_tag, classType: c_tag, className: c_className }
+
 const CreateSection = (props) => {
     const sections = props.sections;
     const classesName = props.classesName;

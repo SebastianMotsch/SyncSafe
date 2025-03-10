@@ -1,3 +1,6 @@
+//Props -> sections (dictionary)
+//sections -> {heading: text, body: text}
+
 import { useState } from "react";
 
 const CreateDropdown = (props) => {

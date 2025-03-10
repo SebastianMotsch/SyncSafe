@@ -1,3 +1,6 @@
+//Props -> sections (dictionary), classesName (dictionary)
+//sections -> {body: text, id: number} x N
+
 const CreateList = (props) => {
     const sections = props.sections;
 
