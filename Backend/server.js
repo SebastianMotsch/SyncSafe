@@ -57,7 +57,7 @@ const calculateRiskScore = (device) => {
   const norm_sslCerts = normalize(sslCountCertificates, 10);  
   const norm_sslTransactions = normalize(sslCountTransactions, 100);
 
-  // **🔹 Adjust weights for better randomness**
+  // **🔹 Adjust weights**
   const weights = {
     duration: 10,       
     bytes: 8,           
@@ -78,7 +78,7 @@ const calculateRiskScore = (device) => {
     lost_segment: 10
   };
 
-  // **🔹 Compute score with randomness**
+  // **🔹 Compute score **
   score += norm_duration * weights.duration;
   score += norm_bytes * weights.bytes;
   score += norm_openPorts * weights.open_ports;
