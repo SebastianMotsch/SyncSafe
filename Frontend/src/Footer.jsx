@@ -1,4 +1,5 @@
 import "./Footer.css"; // Ensure to style accordingly
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -16,10 +17,10 @@ const Footer = () => {
             <div className="footer-section">
               <h5>SyncSafe</h5>
               <ul>
-                <li><a href="#about">About Us</a></li>
+                <li><Link to="/services">About Us</Link></li>
                 <li><a href="#threat-intelligence">Threat Intelligence</a></li>
-                <li><a href="#security-practices">Security Practices</a></li>
-                <li><a href="#contact">Contact Support</a></li>
+                <li><Link to="/maininfo">Security Practices</Link></li>
+                <li><Link to="/contact">Contact Support</Link></li>
               </ul>
             </div>
 
